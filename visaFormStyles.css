@@ -197,12 +197,22 @@ input[type="submit"]:hover,
 opacity: var(--hover-opacity);
 }
 
-/* Footer Styles /
+/* Footer Styles */
 footer {
-text-align: center;
-margin-top: 20px;
-margin-bottom: 20px; / Add margin below the footer text */
-color: var(--dark-gray);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-text {
+    text-align: center;
+    width: 100%;
 }
 
 /* Responsive Design */
