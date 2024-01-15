@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="submitted-details">
-        <div class="details-title">Iran Visa Application Form Submitted Details</div>
+        <div class="details-title">Iran Visa Application Form</div>
+        <div class="sub-text">Applicant Submitted Details
         <div class="company-name">Skyworld GmbH</div>
 
         <div class="submitted-columns">
@@ -35,7 +36,7 @@
         function displayFormData() {
             const formData = JSON.parse(localStorage.getItem('formData'));
             if (formData) {
-                let detailsHtml = '<tr><th>Field</th><th>Value</th></tr>';
+                let detailsHtml = '<tr><th>Application Questions</th><th>Applicant Submitted Details</th></tr>';
                 for (const key in formData) {
                     let formattedKey = key.replace(/([A-Z])/g, ' $1').trim();
                     formattedKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
