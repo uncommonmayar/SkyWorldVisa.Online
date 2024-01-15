@@ -192,7 +192,8 @@
 
 <script>
     function saveDetails(event) {
-        event.preventDefault();  // Prevent the default form submission
+        event.preventDefault(); // Prevent the default form submission
+        console.log("Form submitted"); // Console log for debugging
 
         // Collect form data into an object
         const formData = {
