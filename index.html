@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iran Visa Application Form</title>
     <link rel="stylesheet" href="visaFormStyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet
+" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,8 +18,8 @@
             <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.link/o3l5yr" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </header>
+</div>
+</header>
     <div class="container">
         <form id="visaForm" onsubmit="saveDetails(event);">
             <div class="title-container">
@@ -185,7 +186,6 @@
 <footer class="footer">
     <p>Iran Visa Form v1.0 | Designed and Created by SkyWorld Gmbh | Report issues to: <a href="mailto:Rmayar@aol.com">Rmayar@aol.com</a></p>
 </footer>
-</div>
 
 <script>
     function saveDetails(event) {
@@ -226,13 +226,13 @@
         formData.submissionTime = submissionTime;
 
         // Log formData to the console for debugging (You can remove this later)
-        console.log(formData);
+        console.log(formData); // Debugging line, can be removed
         
         // Save form data to local storage
-        localStorage.setItem('formData', JSON.stringify(formData));
+        localStorage.setItem('formData', JSON.stringify(formData)); // Save to local storage
 
         // Redirect to the submitted details page
-        window.location.href = 'submittedDetails.html';
+        localStorage.setItem('formData', JSON.stringify(formData)); // Save to local storage
     }
 </script>
 
