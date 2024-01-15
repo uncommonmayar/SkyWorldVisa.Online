@@ -191,7 +191,10 @@
 </div>
 
 <script>
-    function saveDetails() {
+    function saveDetails(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Collect form data into an object
         const formData = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
@@ -201,15 +204,16 @@
             applicantProfession: document.getElementById('applicantProfession').value,
             fatherName: document.getElementById('fatherName').value,
             email: document.getElementById('email').value,
-            contactNumber: document.getElementById('contactNumber').value,
+            contactNumberGermany: document.getElementById('contactNumberGermany').value,
+            contactNumberIran: document.getElementById('contactNumberIran').value,
             addressGermany: document.getElementById('addressGermany').value,
             addressIran: document.getElementById('addressIran').value,
             lengthOfStay: document.getElementById('lengthOfStay').value,
             visaType: document.getElementById('visaType').value,
             departureDate: document.getElementById('departureDate').value,
             returnDate: document.getElementById('returnDate').value,
-            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Note: This captures the file object, not the file path
-            photoUpload: document.getElementById('photoUpload').files[0]
+            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Captures the file object
+            uploadPhoto: document.getElementById('uploadPhoto').files[0] // Captures the file object
         };
 
         // Generate a reference number (SW + YearMonthDate + Application Number)
@@ -219,12 +223,10 @@
         const date = String(now.getDate()).padStart(2, '0');
         const applicationNumber = Math.floor(Math.random() * 100) + 1; // Generate a random application number
 
-        const referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
-        formData.referenceNumber = referenceNumber;
+        formData.referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
 
         // Get the current date and time
-        const submissionTime = now.toLocaleString();
-        formData.submissionTime = submissionTime;
+        formData.submissionTime = now.toLocaleString();
 
         // Save form data to local storage
         localStorage.setItem('formData', JSON.stringify(formData));
