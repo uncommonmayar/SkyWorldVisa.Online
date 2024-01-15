@@ -198,42 +198,38 @@
             dob: document.getElementById('dob').value,
             maritalStatus: document.getElementById('maritalStatus').value,
             applicantProfession: document.getElementById('applicantProfession').value,
-            fatherName: document.getElementById('fatherName').value,
-            email: document.getElementById('email').value,
-            contactNumber: document.getElementById('contactNumber').value,
-            addressGermany: document.getElementById('addressGermany').value,
-            addressIran: document.getElementById('addressIran').value,
-            lengthOfStay: document.getElementById('lengthOfStay').value,
-            visaType: document.getElementById('visaType').value,
-            departureDate: document.getElementById('departureDate').value,
-            returnDate: document.getElementById('returnDate').value,
-            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Note: This captures the file object, not the file path
-            photoUpload: document.getElementById('photoUpload').files[0]
-        };
+                    fatherName: document.getElementById('fatherName').value,
+        email: document.getElementById('email').value,
+        contactNumberGermany: document.getElementById('contactNumberGermany').value,
+        contactNumberIran: document.getElementById('contactNumberIran').value,
+        addressGermany: document.getElementById('addressGermany').value,
+        addressIran: document.getElementById('addressIran').value,
+        lengthOfStay: document.getElementById('lengthOfStay').value,
+        visaType: document.getElementById('visaType').value,
+        departureDate: document.getElementById('departureDate').value,
+        returnDate: document.getElementById('returnDate').value,
+        uploadDocuments: document.getElementById('uploadDocuments').files[0],
+        uploadPhoto: document.getElementById('uploadPhoto').files[0]
+    };
 
-        // Generate a reference number (SW + YearMonthDate + Application Number)
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const date = String(now.getDate()).padStart(2, '0');
-        const applicationNumber = Math.floor(Math.random() * 100) + 1; // Generate a random application number
+    // Generate a reference number (SW + YearMonthDate + Application Number)
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const date = String(now.getDate()).padStart(2, '0');
+    const applicationNumber = Math.floor(Math.random() * 10000) + 1; // Generate a random application number
 
-        const referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
-        formData.referenceNumber = referenceNumber;
+    formData.referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
 
-        // Get the current date and time
-        const submissionTime = now.toLocaleString();
-        formData.submissionTime = submissionTime;
+    // Get the current date and time
+    formData.submissionTime = now.toLocaleString();
 
-        // Log formData to the console for debugging (You can remove this later)
-        console.log(formData); // Debugging line, can be removed
-        
-        // Save form data to local storage
-        localStorage.setItem('formData', JSON.stringify(formData)); // Save to local storage
+    // Save form data to local storage
+    localStorage.setItem('formData', JSON.stringify(formData));
 
-        // Redirect to the submitted details page
-        localStorage.setItem('formData', JSON.stringify(formData)); // Save to local storage
-    }
+    // Redirect to the submitted details page
+    window.location.href = 'submittedDetails.html';
+}
 </script>
 
 </body>
