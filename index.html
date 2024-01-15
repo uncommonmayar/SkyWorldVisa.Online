@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-column">
                         <label for="dob">Date of Birth*:</label>
-                        <input type="date" id="dob" name="dob" required>
+                        <input type="date" id="dob" name="dob">
                     </div>
                 </div>
                 <div class="form-row">
@@ -70,7 +70,7 @@
                 <div class="form-row">
                     <div class="form-column">
                         <label for="fatherName">Father's Name*:</label>
-                        <input type="text" id="fatherName" name="fatherName" required>
+                        <input type="text" id="fatherName" name="fatherName">
                     </div>
                     <div class="form-column">
                         <label for="email">Email Address:</label>
@@ -82,7 +82,7 @@
                         <label for="contactNumberGermany">Contact Number (Germany):
                             <span class="sub-text">Please enter the number with the country code. Germany starts with +49.</span>
                         </label>
-                        <input type="tel" id="contactNumberGermany" name="contactNumberGermany" pattern="[0-9]{1,}" required>
+                        <input type="tel" id="contactNumberGermany" name="contactNumberGermany" pattern="[0-9]{1,}">
                     </div>
                     <div class="form-column">
                         <label for="contactNumberIran">Contact Number (Iran):
@@ -225,7 +225,8 @@
         const submissionTime = now.toLocaleString();
         formData.submissionTime = submissionTime;
 
-        console.log(formData); // Log formData for debugging
+        // Log formData to the console for debugging (You can remove this later)
+        console.log(formData);
         
         // Save form data to local storage
         localStorage.setItem('formData', JSON.stringify(formData));
