@@ -199,6 +199,16 @@
 </footer>
 
 <script>
+        function addGermanPrefix() {
+            var input = document.getElementById('contactNumberGermany');
+            if (!input.value.startsWith('+49')) {
+                input.value = '+49' + input.value;
+            }
+        document.getElementById('contactNumberGermany').addEventListener('focus', addGermanPrefix);
+}
+<script>
+    
+<script>
     function saveDetails(event) {
         event.preventDefault(); // Prevent the default form submission
 
@@ -241,12 +251,6 @@
     // Redirect to the submitted details page
     window.location.href = 'submittedDetails.html';
 }
-    function addGermanPrefix() {
-            var input = document.getElementById('contactNumberGermany');
-            if (!input.value.startsWith('+49')) {
-                input.value = '+49' + input.value;
-            }
-        document.getElementById('contactNumberGermany').addEventListener('focus', addGermanPrefix);
 </script>
 
 </body>
