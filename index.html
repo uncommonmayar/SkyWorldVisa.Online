@@ -188,7 +188,9 @@
 </div>
 
 <script>
-    function saveDetails() {
+    function saveDetails(event) {
+        event.preventDefault(); // Prevent the default form submission
+
         const formData = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
