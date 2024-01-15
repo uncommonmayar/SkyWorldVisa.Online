@@ -6,21 +6,18 @@
     <title>Iran Visa Application Form</title>
     <link rel="stylesheet" href="visaFormStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
 </head>
 <body>
-    <nav class="header">
-        <!-- Header navigation links -->
+    <header>
         <div class="header-left">
-            <a href="https://skyworldgmbh.carrd.co/" class="social-icon" aria-label="Skyworld Website"><i class="fas fa-globe"></i></a>
+            <a href="https://skyworldgmbh.carrd.co/" class="social-icon"><i class="fas fa-globe"></i></a>
         </div>
         <div class="header-right">
-            <a href="https://www.instagram.com/skyworldgmbh/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://wa.link/o3l5yr" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/skyworldgmbh/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.link/o3l5yr" class="social-icon"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </nav>
     </header>
     <div class="container">
         <form id="visaForm" onsubmit="saveDetails(); return false;">
@@ -191,11 +188,7 @@
 </div>
 
 <script>
-    function saveDetails(event) {
-        event.preventDefault(); // Prevent the default form submission
-        console.log("Form submitted"); // Console log for debugging
-
-        // Collect form data into an object
+    function saveDetails() {
         const formData = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
@@ -205,16 +198,15 @@
             applicantProfession: document.getElementById('applicantProfession').value,
             fatherName: document.getElementById('fatherName').value,
             email: document.getElementById('email').value,
-            contactNumberGermany: document.getElementById('contactNumberGermany').value,
-            contactNumberIran: document.getElementById('contactNumberIran').value,
+            contactNumber: document.getElementById('contactNumber').value,
             addressGermany: document.getElementById('addressGermany').value,
             addressIran: document.getElementById('addressIran').value,
             lengthOfStay: document.getElementById('lengthOfStay').value,
             visaType: document.getElementById('visaType').value,
             departureDate: document.getElementById('departureDate').value,
             returnDate: document.getElementById('returnDate').value,
-            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Captures the file object
-            uploadPhoto: document.getElementById('uploadPhoto').files[0] // Captures the file object
+            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Note: This captures the file object, not the file path
+            photoUpload: document.getElementById('photoUpload').files[0]
         };
 
         // Generate a reference number (SW + YearMonthDate + Application Number)
@@ -224,10 +216,12 @@
         const date = String(now.getDate()).padStart(2, '0');
         const applicationNumber = Math.floor(Math.random() * 100) + 1; // Generate a random application number
 
-        formData.referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
+        const referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
+        formData.referenceNumber = referenceNumber;
 
         // Get the current date and time
-        formData.submissionTime = now.toLocaleString();
+        const submissionTime = now.toLocaleString();
+        formData.submissionTime = submissionTime;
 
         // Save form data to local storage
         localStorage.setItem('formData', JSON.stringify(formData));
