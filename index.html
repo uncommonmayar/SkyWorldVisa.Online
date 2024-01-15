@@ -225,6 +225,8 @@
         const submissionTime = now.toLocaleString();
         formData.submissionTime = submissionTime;
 
+        console.log(formData); // Log formData for debugging
+        
         // Save form data to local storage
         localStorage.setItem('formData', JSON.stringify(formData));
 
