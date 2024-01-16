@@ -9,7 +9,6 @@
 <body>
     <div class="submitted-details">
         <div class="details-title">Iran Visa Application Form</div>
-        <div class="sub-text">Applicant Submitted Details
         <div class="company-name">Skyworld GmbH</div>
 
         <div class="submitted-columns">
@@ -45,8 +44,7 @@
                     detailsHtml += `<tr><td>${formattedKey}</td><td>${formData[key]}</td></tr>`;
                 }
                 document.getElementById('applicantDetails').innerHTML = detailsHtml;
-                document.getElementById('submissionDateTime').textContent = formData.submissionTime;
-                document.getElementById('referenceNumber').textContent = formData.referenceNumber;
+
             }
         }
 
