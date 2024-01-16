@@ -242,7 +242,19 @@
     // Redirect to the submitted details page
     window.location.href = 'submittedDetails.html';
 }
-</script>
+
+        function repopulateForm() {
+            const storedData = localStorage.getItem('formData');
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                document.getElementById('firstName').value = formData.firstName || '';
+                document.getElementById('lastName').value = formData.lastName || '';
+                // ... repopulate other form fields ...
+            }
+        }
+
+        window.onload = repopulateForm;
+    </script>
 
 </body>
 </html>
