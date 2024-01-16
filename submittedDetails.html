@@ -19,10 +19,7 @@
             </div>
         </div>
 
-        <div class="submission-info">
-            <p><strong>Submission Date and Time:</strong> <span id="submissionDateTime"></span></p>
-            <p><strong>Reference Number:</strong> <span id="referenceNumber"></span></p>
-        </div>
+
 
         <div class="buttons-container">
             <button class="action-button" onclick="printForm()">Print</button>
@@ -44,7 +41,8 @@
                     detailsHtml += `<tr><td>${formattedKey}</td><td>${formData[key]}</td></tr>`;
                 }
                 document.getElementById('applicantDetails').innerHTML = detailsHtml;
-
+                document.getElementById('submissionDateTime').textContent = formData.submissionTime;
+                document.getElementById('referenceNumber').textContent = formData.referenceNumber;
             }
         }
 
