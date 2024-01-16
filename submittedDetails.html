@@ -29,6 +29,7 @@
             <button class="action-button" onclick="printForm()">Print</button>
             <button class="action-button" onclick="downloadPDF()">Download PDF</button>
             <button class="action-button" onclick="exportToExcel()">Extract to Excel</button>
+            <button class="action-button" onclick="editForm()">Edit Form</button>
         </div>
     </div>
 
@@ -47,7 +48,10 @@
                 document.getElementById('referenceNumber').textContent = formData.referenceNumber;
             }
         }
-
+        
+    // Call the function on page load
+    window.onload = displayFormData;
+        
         displayFormData();
 
         function printForm() {
