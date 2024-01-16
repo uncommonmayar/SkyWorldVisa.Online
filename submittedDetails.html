@@ -4,86 +4,82 @@
     <title>Iran Visa Application Form Submission</title>
     <link rel="stylesheet" type="text/css" href="submittedDetailsStyles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs
+/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
 </head>
 <body>
     <div class="submitted-details">
         <div class="details-title">Iran Visa Application Form</div>
-
         <div class="company-name">Skyworld GmbH</div>
-
-        <div class="submitted-columns">
-            <div class="column">
-                <table class="details-table" id="applicantDetails">
-                    <!-- Applicant details will be displayed here -->
-                </table>
-            </div>
-        </div>
-
-
-
-        <div class="buttons-container">
-            <button class="action-button" onclick="printForm()">Print</button>
-            <button class="action-button" onclick="downloadPDF()">Download PDF</button>
-            <button class="action-button" onclick="exportToExcel()">Extract to Excel</button>
-            <button class="action-button" onclick="editForm()">Edit My Response</button>
+            <div class="submitted-columns">
+        <div class="column">
+            <table class="details-table" id="applicantDetails">
+                <!-- Applicant details will be displayed here -->
+            </table>
         </div>
     </div>
 
-    <script>
-        function displayFormData() {
-            const formData = JSON.parse(localStorage.getItem('formData'));
-            if (formData) {
-                let detailsHtml = '<tr><th>Application Questions</th><th>Applicant Submitted Details</th></tr>';
-                for (const key in formData) {
-                    let formattedKey = key.replace(/([A-Z])/g, ' $1').trim();
-                    formattedKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
-                    detailsHtml += `<tr><td>${formattedKey}</td><td>${formData[key]}</td></tr>`;
-                }
-                document.getElementById('applicantDetails').innerHTML = detailsHtml;
-                document.getElementById('submissionDateTime').textContent = formData.submissionTime;
-                document.getElementById('referenceNumber').textContent = formData.referenceNumber;
+    <div class="buttons-container">
+        <button class="action-button" onclick="printForm()">Print</button>
+        <button class="action-button" onclick="downloadPDF()">Download PDF</button>
+        <button class="action-button" onclick="exportToExcel()">Extract to Excel</button>
+        <button class="action-button" onclick="editForm()">Edit My Response</button>
+    </div>
+</div>
+
+<script>
+    function displayFormData() {
+        const formData = JSON.parse(localStorage.getItem('formData'));
+        if (formData) {
+            let detailsHtml = '<tr><th>Application Questions</th><th>Applicant Submitted Details</th></tr>';
+            for (const key in formData) {
+                let formattedKey = key.replace(/([A-Z])/g, ' $1').trim();
+                formattedKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
+                detailsHtml += `<tr><td>${formattedKey}</td><td>${formData[key]}</td></tr>`;
             }
+            document.getElementById('applicantDetails').innerHTML = detailsHtml;
+            document.getElementById('submissionDateTime').textContent = formData.submissionTime;
+            document.getElementById('referenceNumber').textContent = formData.referenceNumber;
         }
-        
-    // Call the function on page load
+    }
+
     window.onload = displayFormData;
-        
-        displayFormData();
 
-        function printForm() {
-            window.print();
-        }
+    function printForm() {
+        window.print();
+    }
 
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            let y = 10;
-            const formData = JSON.parse(localStorage.getItem('formData'));
-            for (const key in formData) {
-                doc.text(`${key}: ${formData[key]}`, 10, y);
-                y += 10;
-            }
-            doc.save('submitted-details.pdf');
+    function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        let y = 10;
+        const formData = JSON.parse(localStorage.getItem('formData'));
+        for (const key in formData) {
+            doc.text(`${key}: ${formData[key]}`, 10, y);
+            y += 10;
         }
+        doc.save('submitted-details.pdf');
+    }
 
-        function exportToExcel() {
-            let csvContent = "data:text/csv;charset=utf-8,";
-            const formData = JSON.parse(localStorage.getItem('formData'));
-            for (const key in formData) {
-                csvContent += key + "," + formData[key] + "\r\n";
-            }
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "submitted-details.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-        function editForm() {
-            window.location.href = 'index.html'; // Redirect to the form for editing
-        }
-    </script>
+    function exportToExcel() {
+        let csvContent = "data:text/csv;charset=utf-8,";
+        const formData = JSON.parse(localStorage.getItem('formData'));
+        for (const key in formData) {
+            csvContent += key + "," + formData[key] + "\r\n";
+       
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "submitted-details.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function editForm() {
+        window.location.href = 'index.html';
+    }
+</script>
 </body>
 </html>
