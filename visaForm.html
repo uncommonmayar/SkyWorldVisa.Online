@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iran Visa Application Form</title>
+<link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="visaFormStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="https://skyworldgmbh.carrd.co/" class="social-icon"><i class="fas fa-globe"></i></a>
+        </div>
+        <div class="header-right">
+            <a href="https://www.instagram.com/skyworldgmbh/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.link/o3l5yr" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </header>
+    <div class="container">
+        <form id="visaForm" onsubmit="saveDetails(); return false;">
+            <div class="title-container">
+                <img src="Skylogo.png" alt="Skyworld Logo" class="logo">
+                <h1>Iran Visa Application Form</h1>
+            </div>
+            <div class="form-section">
+                <h2>Personal Information</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="firstName">First Name<span class="mandatory">*</span>:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-column">
+                        <label for="lastName">Last Name<span class="mandatory">*</span>:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="gender">Gender*:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-column">
+                        <label for="dob">Date of Birth*:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="maritalStatus">Marital Status*:</label>
+                        <select id="maritalStatus" name="maritalStatus" required>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                    <div class="form-column">
+                        <label for="applicantProfession">Applicant Profession:</label>
+                        <input type="text" id="applicantProfession" name="applicantProfession">
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Contact Information</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="fatherName">Father's Name*:</label>
+                        <input type="text" id="fatherName" name="fatherName" required>
+                    </div>
+                    <div class="form-column">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="contactNumberGermany">Contact Number (Germany):
+                            <span class="sub-text">Please enter the number with the country code. Germany starts with +49.</span>
+                        </label>
+                        <input type="tel" id="contactNumberGermany" name="contactNumberGermany" pattern="[0-9]{1,}" required>
+                    </div>
+                    <div class="form-column">
+                        <label for="contactNumberIran">Contact Number (Iran):
+                            <span class="sub-text">Please enter the number with the country code. Iran starts with +98.</span>
+                        </label>
+                        <input type="tel" id="contactNumberIran" name="contactNumberIran" pattern="[0-9]{1,}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Residence Addresses</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="addressGermany">Address (Germany)<span class="mandatory">*</span>:
+                            <span class="sub-text">Please enter your Germany residence address.</span>
+                        </label>
+                        <textarea id="addressGermany" name="addressGermany" required></textarea>
+                    </div>
+                    <div class="form-column">
+                        <label for="addressIran">Address (Iran):
+                            <span class="sub-text">Please enter your Iran residence address if available.</span>
+                        </label>
+                        <textarea id="addressIran" name="addressIran"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Visa Details</h2>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="lengthOfStay">Length of Stay*:</label>
+                        <select id="lengthOfStay" name="lengthOfStay" required>
+                            <option value="7DaysTransitMultiple">7 Days Transit (Multiple)</option>
+                            <option value="45DaysSingle">45 Days Single</option>
+                            <option value="45DaysMultiple">45 Days Multiple</option>
+                            <option value="60DaysSingle">60 Days Single</option>
+                            <option value="60DaysMultiple">60 Days Multiple</option>
+                            <option value="90DaysSingle">90 Days Single</option>
+                            <option value="90DaysMultiple">90 Days Multiple</option>
+                        </select>
+                    </div>
+                    <div class="form-column">
+                        <label for="visaType">Visa Type*:
+                            <span class="sub-text">Opting for an Urgent visa ensures same-day processing within 24 hours, subject to additional surcharges.</span>
+                        </label>
+                        <select id="visaType" name="visaType" required>
+                            <option value="urgent">Urgent</option>
+                            <option value="normal">Normal</option>
+                            <option value="ziyarati">Ziyarati</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <label for="departureDate">Date of Departure:</label>
+                        <input type="date" id="departureDate" name="departureDate">
+                    </div>
+                    <div class="form-column">
+                        <label for="returnDate">Date of Return:</label>
+                        <input type="date" id="returnDate" name="returnDate">
+                    </div>
+                </div>
+<div class="form-row">
+    <div class="form-column">
+        <label for="uploadDocuments">Upload Documents*:
+            <span class="sub-text">Required Documents: Passport Copy, Passport Extension, ID Card</span>
+        </label>
+        <input type="file" id="uploadDocuments" name="uploadDocuments" accept="image/*" capture="camera">
+    </div>
+    <div class="form-column">
+        <label for="uploadPhoto">Upload Photo or Take Picture with Camera*:
+            <span class="sub-text">Please upload a photo or use the camera to take a picture.</span>
+        </label>
+        <input type="file" id="uploadPhoto" name="uploadPhoto" accept="image/*" capture="camera">
+    </div>
+</div>
+            </div>
+            <div class="important-note">
+                <h2>Important Note:</h2>
+                <ul>
+                    <li>Please provide 1 passport photo with a white background. Ensure the photo depicts you without glasses, a straight face, and without any editing.</li>
+                    <li>For applicants holding Afghan Passports or travel documents, submission of their resident ID card is mandatory.</li>
+                    <li>Ensure that both the applicant's passport and residency documents have a minimum validity of 6 months.</li>
+                    <li>If a parent intends to travel with their children, partner consent is mandatory for visa application processing. Failure to provide this consent will result in the inability to process the visa application.</li>
+                </ul>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I agree to the Data Consent terms</label>
+            </div>
+            <div class="consent-text">
+                By checking the box above, you are agreeing to our data consent terms. We take your privacy seriously and will only use your information for processing your visa application. For more details, please review our <a href="#">Privacy Policy</a>.
+            </div>
+            <div class="buttons-container">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+<footer class="footer">
+    <p>Iran Visa Form v1.0 | Designed and Created by SkyWorld Gmbh | Report issues to: <a href="mailto:Rmayar@aol.com">Rmayar@aol.com</a></p>
+</footer>
+</div>
+
+<script>
+    function saveDetails() {
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            gender: document.getElementById('gender').value,
+            dob: document.getElementById('dob').value,
+            maritalStatus: document.getElementById('maritalStatus').value,
+            applicantProfession: document.getElementById('applicantProfession').value,
+            fatherName: document.getElementById('fatherName').value,
+            email: document.getElementById('email').value,
+            contactNumber: document.getElementById('contactNumber').value,
+            addressGermany: document.getElementById('addressGermany').value,
+            addressIran: document.getElementById('addressIran').value,
+            lengthOfStay: document.getElementById('lengthOfStay').value,
+            visaType: document.getElementById('visaType').value,
+            departureDate: document.getElementById('departureDate').value,
+            returnDate: document.getElementById('returnDate').value,
+            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Note: This captures the file object, not the file path
+            photoUpload: document.getElementById('photoUpload').files[0]
+        };
+
+        // Generate a reference number (SW + YearMonthDate + Application Number)
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const date = String(now.getDate()).padStart(2, '0');
+        const applicationNumber = Math.floor(Math.random() * 100) + 1; // Generate a random application number
+
+        const referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
+        formData.referenceNumber = referenceNumber;
+
+        // Get the current date and time
+        const submissionTime = now.toLocaleString();
+        formData.submissionTime = submissionTime;
+
+        // Save form data to local storage
+        localStorage.setItem('formData', JSON.stringify(formData));
+
+        // Redirect to the submitted details page
+        window.location.href = 'submittedDetails.html';
+    }
+</script>
+
+</body>
+</html>

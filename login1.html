@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iran Visa Application Form</title>
+    <link rel="stylesheet" href="login2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <nav class="header">
+        <!-- Header navigation links -->
+        <div class="header-left">
+            <a href="https://skyworldgmbh.carrd.co/" class="social-icon" aria-label="Skyworld Website"><i class="fas fa-globe"></i></a>
+        </div>
+        <div class="header-right">
+            <a href="https://www.instagram.com/skyworldgmbh/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.link/o3l5yr" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </nav>
+    </header>
+
+    <div class="container">
+        <form id="visaForm" onsubmit="saveDetails(); return false;">
+        <div class="title-container">
+        <img src="Skylogo.png" alt="Skyworld Logo" class="logo">
+        <h1>Login to Your Account</h1>
+<form id="loginForm">
+    <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+<div class="input-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <span id="togglePassword" class="toggle-password">&#128065;</span> <!-- This is the eye icon -->
+	<div class="error-message" id="errorMessage" style="display: none;"></div>
+</div>
+
+    <button type="button" id="loginButton" class="login-button">Login</button>
+</form>
+    </div>
+
+    <footer class="page-footer">
+        <p>&copy; 2024 Skyworld GmbH. All rights reserved.</p>
+    </footer>
+
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="login_background.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+<script>
+document.getElementById('loginButton').addEventListener('click', function() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('errorMessage');
+
+    // Check different scenarios and display appropriate error messages
+    if (username === '' && password === '') {
+        errorMessage.textContent = 'Please add your username and password.';
+    } else if (username === '' && password !== '') {
+        errorMessage.textContent = 'Please add your username.';
+    } else if (password === '' && username !== '') {
+        errorMessage.textContent = 'Please add your password.';
+    } else if (username !== 'skyworld@visa' && password !== '') {
+        errorMessage.textContent = 'Username not valid.';
+    } else if (username === 'skyworld@visa' && password !== 'Sky@1234') {
+        errorMessage.textContent = 'Invalid password.';
+    } else if (username === 'skyworld@visa' && password === 'Sky@1234') {
+        window.location.href = 'index.html';
+        return; // Exit the function
+    } else {
+        errorMessage.textContent = 'Invalid credentials. Please try again.';
+    }
+
+    errorMessage.style.display = 'block'; // Show the error message
+});
+
+
+
+document.getElementById('togglePassword').addEventListener('click', function() {
+    var password = document.getElementById('password');
+    var toggle = document.getElementById('togglePassword');
+    if (password.type === 'password') {
+        password.type = 'text';
+        toggle.innerHTML = '&#128065;'; // Change to 'Hide' icon or text
+    } else {
+        password.type = 'password';
+        toggle.innerHTML = '&#128065;'; // Change to 'Show' icon or text
+    }
+});
+</script>
+
+</body>
+</html>

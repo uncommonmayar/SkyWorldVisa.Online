@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+/* Reset and font */
+* {
+    box-sizing: border-box;
+    padding: 0;  
+}
+
+#backgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+nav.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.social-icon:hover {
+    color: #C7C5F4;
+}
+
+/* Main Container */
+.container {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.container, header, footer {
+    position: relative;
+}
+
+/* Title Container */
+.title-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    margin: auto;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group label {
+    text-align: left; /* Aligns the text to the left */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Password Toggle */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Footer Styles */
+footer.page-footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        padding: 15px;
+        width: 90%;
+    }
+}

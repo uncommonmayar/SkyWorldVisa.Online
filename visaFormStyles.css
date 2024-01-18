@@ -5,22 +5,10 @@
     box-sizing: border-box;
 }
 
-/* CSS Variables for easy color management */
-:root {
-    --primary-color: #336699;
-    --text-color: #333;
-    --background-color: #f0f5f9;
-    --light-gray: #f9f9f9;
-    --dark-gray: #666;
-    --border-color: #ccc;
-    --error-color: red;
-    --hover-opacity: 0.8;
-}
-
 /* Set background color */
 body {
-    font-family: 'Open Sans', Arial, sans-serif; /* Modern font */
-    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    background-color: #f0f5f9; /* Light blue-gray background */
     margin: 0;
     padding: 0;
 }
@@ -30,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: #336699; /* Header background color */
     color: white;
 }
 
@@ -39,10 +27,6 @@ header {
     color: white;
     margin: 0 10px;
     font-size: 24px;
-}
-
-.social-icon:hover {
-    opacity: var(--hover-opacity);
 }
 
 .title-container {
@@ -58,7 +42,7 @@ header {
 
 h1 {
     font-size: 28px;
-    color: var(--primary-color);
+    color: #336699;
     margin-left: 10px;
     display: inline-block;
     vertical-align: middle;
@@ -69,8 +53,8 @@ h1 {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
-    border: 1px solid var(--border-color);
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -81,7 +65,7 @@ h1 {
 }
 
 .form-section h2 {
-    color: var(--primary-color);
+    color: #336699;
     font-size: 18px;
     margin-bottom: 10px;
 }
@@ -100,7 +84,7 @@ h1 {
 
 label {
     font-weight: bold;
-    color: var(--text-color);
+    color: #333;
     margin-bottom: 5px;
 }
 
@@ -112,154 +96,124 @@ textarea,
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--border
--color);
-border-radius: 5px;
-font-size: 16px;
-margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 /* Add asterisk to mandatory fields */
 .mandatory {
-color: var(--error-color);
-margin-left: 3px;
+    color: red;
+    margin-left: 3px;
 }
 
 /* Sub-text Styles */
 .sub-text {
-font-size: 14px;
-color: var(--dark-gray);
-margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
 }
 
 /* Important Note Styles */
 .important-note {
-background-color: var(--light-gray);
-border: 1px solid var(--border-color);
-border-radius: 5px;
-padding: 10px;
-margin-top: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
 }
 
 .important-note p {
-font-weight: bold;
-color: var(--text-color);
+    font-weight: bold;
+    color: #333;
 }
 
 .important-note ul {
-list-style-type: disc;
-margin-left: 20px;
+    list-style-type: disc;
+    margin-left: 20px;
 }
 
 .important-note li {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 /* Checkbox Styles */
 .checkbox-container {
-display: flex;
-align-items: center;
-margin-top: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
 
 input[type="checkbox"] {
-margin-right: 10px;
-vertical-align: middle;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 /* Consent Text Styles */
 .consent-text {
-font-size: 14px;
-color: var(--text-color);
-margin-top: 20px;
-margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
 }
 
 /* Buttons Styles */
 .buttons-container {
-text-align: center;
-margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-input[type="submit"],
-.action-button {
-background-color: var(--primary-color);
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-margin: 0 10px;
-font-size: 16px;
-}
-
-input[type="submit"]:hover,
-.action-button:hover {
-opacity: var(--hover-opacity);
+input[type="submit"] {
+    background-color: #336699;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
 }
 
 /* Footer Styles */
 footer {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
-    color: var(--dark-gray);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-bottom: 20px; /* Add margin below the footer text */
+    color: #666;
 }
 
+/* Style the paragraph within the footer for centering */
 .footer-text {
     text-align: center;
-    width: 100%;
+    margin: 0;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-.form-row {
-flex-direction: column;
+@media print {
+    .buttons-container {
+        display: none;
+    }
+    .container {
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
 }
-    .form-column {
+
+/* Add this CSS code to style the new input for uploading a photo or taking a picture */
+.form-column:nth-child(2) label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-column:nth-child(2) input[type="file"] {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
-header {
-    flex-direction: column
-    ;
-align-items: center;
-}
-    .social-icon {
-    font-size: 20px;
-}
-
-.title-container h1 {
-    font-size: 24px;
-}
-}
-
-/* Print Styles */
-@media print {
-.buttons-container {
-display: none;
-}
-    .container {
-    width: 100%;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-}
-}
-
-/* Additional Styles for File Upload Inputs */
-.form-column input[type="file"] {
-width: 100%;
-padding: 10px;
-border: 1px solid var(--border-color);
-border-radius: 5px;
-font-size: 16px;
-margin-bottom: 10px;
-}
