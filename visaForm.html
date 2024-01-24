@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iran Visa Application Form</title>
-<link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="visaFormStyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet
+" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -18,10 +18,10 @@
             <a href="https://www.facebook.com/skyworldgmbh/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com/company/skyworld-gmbh" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.link/o3l5yr" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </header>
+</div>
+</header>
     <div class="container">
-        <form id="visaForm" onsubmit="saveDetails(); return false;">
+        <form id="visaForm" onsubmit="saveDetails(event);">
             <div class="title-container">
                 <img src="Skylogo.png" alt="Skyworld Logo" class="logo">
                 <h1>Iran Visa Application Form</h1>
@@ -42,22 +42,22 @@
                     <div class="form-column">
                         <label for="gender">Gender*:</label>
                         <select id="gender" name="gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                     <div class="form-column">
                         <label for="dob">Date of Birth*:</label>
-                        <input type="date" id="dob" name="dob" required>
+                        <input type="date" id="dob" name="dob">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-column">
                         <label for="maritalStatus">Marital Status*:</label>
                         <select id="maritalStatus" name="maritalStatus" required>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                            <option value="divorced">Divorced</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
                         </select>
                     </div>
                     <div class="form-column">
@@ -71,7 +71,7 @@
                 <div class="form-row">
                     <div class="form-column">
                         <label for="fatherName">Father's Name*:</label>
-                        <input type="text" id="fatherName" name="fatherName" required>
+                        <input type="text" id="fatherName" name="fatherName">
                     </div>
                     <div class="form-column">
                         <label for="email">Email Address:</label>
@@ -83,13 +83,13 @@
                         <label for="contactNumberGermany">Contact Number (Germany):
                             <span class="sub-text">Please enter the number with the country code. Germany starts with +49.</span>
                         </label>
-                        <input type="tel" id="contactNumberGermany" name="contactNumberGermany" pattern="[0-9]{1,}" required>
+                        <input type="tel" id="contactNumberGermany" name="contactNumberGermany">
                     </div>
                     <div class="form-column">
                         <label for="contactNumberIran">Contact Number (Iran):
                             <span class="sub-text">Please enter the number with the country code. Iran starts with +98.</span>
                         </label>
-                        <input type="tel" id="contactNumberIran" name="contactNumberIran" pattern="[0-9]{1,}">
+                        <input type="tel" id="contactNumberIran" name="contactNumberIran">
                     </div>
                 </div>
             </div>
@@ -116,13 +116,13 @@
                     <div class="form-column">
                         <label for="lengthOfStay">Length of Stay*:</label>
                         <select id="lengthOfStay" name="lengthOfStay" required>
-                            <option value="7DaysTransitMultiple">7 Days Transit (Multiple)</option>
-                            <option value="45DaysSingle">45 Days Single</option>
-                            <option value="45DaysMultiple">45 Days Multiple</option>
-                            <option value="60DaysSingle">60 Days Single</option>
-                            <option value="60DaysMultiple">60 Days Multiple</option>
-                            <option value="90DaysSingle">90 Days Single</option>
-                            <option value="90DaysMultiple">90 Days Multiple</option>
+                            <option value="7 Days Transit Multiple">7 Days Transit (Multiple)</option>
+                            <option value="45 Days Single">45 Days Single</option>
+                            <option value="45 Days Multiple">45 Days Multiple</option>
+                            <option value="60 Days Single">60 Days Single</option>
+                            <option value="60 Days Multiple">60 Days Multiple</option>
+                            <option value="90 Days Single">90 Days Single</option>
+                            <option value="90 Days Multiple">90 Days Multiple</option>
                         </select>
                     </div>
                     <div class="form-column">
@@ -130,9 +130,9 @@
                             <span class="sub-text">Opting for an Urgent visa ensures same-day processing within 24 hours, subject to additional surcharges.</span>
                         </label>
                         <select id="visaType" name="visaType" required>
-                            <option value="urgent">Urgent</option>
-                            <option value="normal">Normal</option>
-                            <option value="ziyarati">Ziyarati</option>
+                            <option value="Urgent">Urgent</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Ziyarati">Ziyarati</option>
                         </select>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
         <input type="file" id="uploadDocuments" name="uploadDocuments" accept="image/*" capture="camera">
     </div>
     <div class="form-column">
-        <label for="uploadPhoto">Upload Photo or Take Picture with Camera*:
-            <span class="sub-text">Please upload a photo or use the camera to take a picture.</span>
+        <label for="uploadPhoto">Upload Photo*:
+            <span class="sub-text">Upload a photo or use the camera to take a picture.</span>
         </label>
         <input type="file" id="uploadPhoto" name="uploadPhoto" accept="image/*" capture="camera">
     </div>
@@ -175,21 +175,33 @@
                 <label for="consent">I agree to the Data Consent terms</label>
             </div>
             <div class="consent-text">
-                By checking the box above, you are agreeing to our data consent terms. We take your privacy seriously and will only use your information for processing your visa application. For more details, please review our <a href="#">Privacy Policy</a>.
+	            <p><i class="fas fa-check-square"></i> By checking the box above, you are agreeing to our data consent terms. We take your privacy seriously and will only use your information for processing your visa application. For more details, please review our <a href="https://www.skytravels.com/privacy_policy">Privacy Policy</a>.</p>
+	            <p><i class="fas fa-info-circle"></i> Please read all the terms and conditions carefully before submitting the application. For any technical issues with the form, please contact <a href="mailto:Germany@skytravels.com">Germany@skytravels.com</a>.</p>
+	            <p><i class="fas fa-asterisk"></i> Fields marked with an asterisk (*) are mandatory.</p>
             </div>
+            
             <div class="buttons-container">
                 <input type="submit" value="Submit">
             </div>
         </form>
-    </div>
 
-<footer class="footer">
-    <p>Iran Visa Form v1.0 | Designed and Created by SkyWorld Gmbh | Report issues to: <a href="mailto:Rmayar@aol.com">Rmayar@aol.com</a></p>
-</footer>
+ 
+    </section>
+    <section class="additional-info">
+        
+    </section>
 </div>
 
+<footer class="footer">
+    <p>Review our <a href="https://www.skytravels.com/privacy_policy">Privacy Policy</a> and <a href="https://www.skytravels.com/terms_and_conditions">Terms & Conditions</a>.</p>
+    <p>© 2024 SkyWorld GmbH Visa Application Services. All rights reserved.</p>
+</footer>
+
+
 <script>
-    function saveDetails() {
+    function saveDetails(event) {
+        event.preventDefault(); // Prevent the default form submission
+
         const formData = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
@@ -197,40 +209,51 @@
             dob: document.getElementById('dob').value,
             maritalStatus: document.getElementById('maritalStatus').value,
             applicantProfession: document.getElementById('applicantProfession').value,
-            fatherName: document.getElementById('fatherName').value,
-            email: document.getElementById('email').value,
-            contactNumber: document.getElementById('contactNumber').value,
-            addressGermany: document.getElementById('addressGermany').value,
-            addressIran: document.getElementById('addressIran').value,
-            lengthOfStay: document.getElementById('lengthOfStay').value,
-            visaType: document.getElementById('visaType').value,
-            departureDate: document.getElementById('departureDate').value,
-            returnDate: document.getElementById('returnDate').value,
-            uploadDocuments: document.getElementById('uploadDocuments').files[0], // Note: This captures the file object, not the file path
-            photoUpload: document.getElementById('photoUpload').files[0]
-        };
+                    fatherName: document.getElementById('fatherName').value,
+        email: document.getElementById('email').value,
+        contactNumberGermany: document.getElementById('contactNumberGermany').value,
+        contactNumberIran: document.getElementById('contactNumberIran').value,
+        addressGermany: document.getElementById('addressGermany').value,
+        addressIran: document.getElementById('addressIran').value,
+        lengthOfStay: document.getElementById('lengthOfStay').value,
+        visaType: document.getElementById('visaType').value,
+        departureDate: document.getElementById('departureDate').value,
+        returnDate: document.getElementById('returnDate').value,
+        uploadDocuments: document.getElementById('uploadDocuments').files[0],
+        uploadPhoto: document.getElementById('uploadPhoto').files[0]
+    };
 
-        // Generate a reference number (SW + YearMonthDate + Application Number)
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const date = String(now.getDate()).padStart(2, '0');
-        const applicationNumber = Math.floor(Math.random() * 100) + 1; // Generate a random application number
+    // Generate a reference number (SW + YearMonthDate + Application Number)
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const date = String(now.getDate()).padStart(2, '0');
+    const applicationNumber = Math.floor(Math.random() * 10000) + 1; // Generate a random application number
 
-        const referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
-        formData.referenceNumber = referenceNumber;
+    formData.referenceNumber = `SW${year}${month}${date}-${applicationNumber}`;
 
-        // Get the current date and time
-        const submissionTime = now.toLocaleString();
-        formData.submissionTime = submissionTime;
+    // Get the current date and time
+    formData.submissionTime = now.toLocaleString();
 
-        // Save form data to local storage
-        localStorage.setItem('formData', JSON.stringify(formData));
+    // Save form data to local storage
+    localStorage.setItem('formData', JSON.stringify(formData));
 
-        // Redirect to the submitted details page
-        window.location.href = 'submittedDetails.html';
-    }
-</script>
+    // Redirect to the submitted details page
+    window.location.href = 'submittedDetails.html';
+}
+
+        function repopulateForm() {
+            const storedData = localStorage.getItem('formData');
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                document.getElementById('firstName').value = formData.firstName || '';
+                document.getElementById('lastName').value = formData.lastName || '';
+                // ... repopulate other form fields ...
+            }
+        }
+
+        window.onload = repopulateForm;
+    </script>
 
 </body>
 </html>

@@ -2,14 +2,13 @@
 <html>
 <head>
     <title>Iran Visa Application Form Submission</title>
-<link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="submittedDetailsStyles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="submitted-details">
-        <div class="details-title">Iran Visa Application Form Submitted Details</div>
+        <div class="details-title">Iran Visa Application Form</div>
         <div class="company-name">Skyworld GmbH</div>
 
         <div class="submitted-columns">
@@ -20,15 +19,14 @@
             </div>
         </div>
 
-        <div class="submission-info">
-            <p><strong>Submission Date and Time:</strong> <span id="submissionDateTime"></span></p>
-            <p><strong>Reference Number:</strong> <span id="referenceNumber"></span></p>
-        </div>
+
 
         <div class="buttons-container">
             <button class="action-button" onclick="printForm()">Print</button>
             <button class="action-button" onclick="downloadPDF()">Download PDF</button>
             <button class="action-button" onclick="exportToExcel()">Extract to Excel</button>
+            <button class="action-button" onclick="sendbyemail()">Send by Email</button>
+            <button class="action-button" onclick="editForm()">Edit My Response</button>
         </div>
     </div>
 
@@ -36,7 +34,7 @@
         function displayFormData() {
             const formData = JSON.parse(localStorage.getItem('formData'));
             if (formData) {
-                let detailsHtml = '<tr><th>Field</th><th>Value</th></tr>';
+                let detailsHtml = '<tr><th>Application Questions</th><th>Applicant Submitted Details</th></tr>';
                 for (const key in formData) {
                     let formattedKey = key.replace(/([A-Z])/g, ' $1').trim();
                     formattedKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
@@ -48,7 +46,7 @@
             }
         }
 
-        displayFormData();
+        window.onload = displayFormData;
 
         function printForm() {
             window.print();
@@ -66,20 +64,25 @@
             doc.save('submitted-details.pdf');
         }
 
-        function exportToExcel() {
-            let csvContent = "data:text/csv;charset=utf-8,";
-            const formData = JSON.parse(localStorage.getItem('formData'));
-            for (const key in formData) {
-                csvContent += key + "," + formData[key] + "\r\n";
-            }
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "submitted-details.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
+function exportToExcel() {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    const formData = JSON.parse(localStorage.getItem('formData'));
+    for (const key in formData) {
+        csvContent += key + "," + formData[key] + "\r\n";
+    }
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "submitted-details.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Ensure this function is defined outside of any other function
+function editForm() {
+    window.location.href = 'index.html';
+}
+</script>
 </body>
 </html>
